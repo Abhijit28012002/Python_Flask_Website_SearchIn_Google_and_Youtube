@@ -1,0 +1,5 @@
+Flask==2.3.2
+googlesearch-python==1.2.3
+pygooglenews==0.1.2
+requests==2.31.0
+youtube-search-python==1.6.6

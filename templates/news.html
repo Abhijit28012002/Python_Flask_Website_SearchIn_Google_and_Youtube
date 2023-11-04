@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 525px;
+            height: 150px;
+        }
+        h1{
+            text-align: center;
+            margin-top: 70px;
+        }
+        form{
+            margin-top: 20px;
+            text-align: center;
+        }
+        input{
+            width: 600px;
+            height: 45px;
+            border-radius: 5px;
+        }
+        .result{
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1><img src="{{url_for('static', filename='Google_News.png')}}" alt="GOOGLE NEWS"></h1>
+    <form action="/news" method="post">
+        <input type="text" name="query" placeholder="search About News">
+    </form>
+
+    <div class="result">
+        {% if result %}
+        <h2>Result</h2>
+            {% for i in result %}
+               <p style="color: rgb(14, 230, 57);" ><h5>Title:- </h5>{{i.title}}</a></p>
+               <p style="color: blue;"><h5>Link:- </h5> <a href="{{i.link}}" target="_blank">{{i.link}}</a></p>
+            {% endfor%}
+        {%endif%}
+    </div>
+</body>
+</html>
+
+{% endblock %}
